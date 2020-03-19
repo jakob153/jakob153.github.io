@@ -5,8 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export",
-    "deploy": "yarn export && touch out/.nojekyll && gh-pages -d out -b master",
+    "export": "next export",
+    "deploy": "next build && next export && touch out/.nojekyll && gh-pages -t -f -d out -b master",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
