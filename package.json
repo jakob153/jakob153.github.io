@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "deploy": "next build && next export && gh-pages -d out -b master",
+    "deploy": "next build && next export && gh-pages -d out",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
