@@ -99,7 +99,7 @@ const IndexPage = () => {
       </Head>
       <CssBaseline />
       <Hidden smDown>
-        <Container>
+        <Container className={classes.marginTop2}>
           <Grid container spacing={4}>
             <Grid item md={4}>
               <Profile />
