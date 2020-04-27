@@ -33,7 +33,7 @@ const IndexPage = () => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
 
-  const handleClose = () => setOpen(false);
+  const handleDialog = () => setOpen(!open);
 
   const renderExperience = () => (
     <Paper className={classnames(classes.paper, classes.education)} variant="outlined">
@@ -43,7 +43,7 @@ const IndexPage = () => {
         <Hidden mdUp>
           <Button
             variant="contained"
-            onClick={() => setOpen(true)}
+            onClick={handleDialog}
             className={classes.profileButton}
             startIcon={<AccountBox />}
           >
@@ -121,9 +121,9 @@ const IndexPage = () => {
         {renderExperience()}
         {renderEducation()}
         {renderGithubLink()}
-        <Dialog fullScreen open={open} onClose={handleClose}>
+        <Dialog fullScreen open={open} onClose={handleDialog}>
           <DialogTitle>Profile</DialogTitle>
-          <IconButton className={classes.closeButton} onClick={handleClose}>
+          <IconButton className={classes.closeButton} onClick={handleDialog}>
             <Close />
           </IconButton>
           <DialogContent className={classes.resetPadding}>
