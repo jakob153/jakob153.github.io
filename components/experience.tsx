@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState } from 'react';
 import {
   ExpansionPanel,
   ExpansionPanelDetails,
@@ -8,29 +8,29 @@ import {
   ListItemIcon,
   ListItemText,
   Theme,
-  makeStyles
-} from "@material-ui/core";
-import { ChevronRight, ExpandMore } from "@material-ui/icons";
+  makeStyles,
+} from '@material-ui/core';
+import { ChevronRight, ExpandMore } from '@material-ui/icons';
 
-import { Jobs } from "../interfaces/Job";
+import { Jobs } from '../interfaces/Job';
 
 const useStyles = makeStyles((theme: Theme) => ({
   expansionPanelDetail: {
-    [theme.breakpoints.down("md")]: {
-      padding: 0
-    }
+    [theme.breakpoints.down('md')]: {
+      padding: 0,
+    },
   },
   listItem: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('md')]: {
       paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1)
-    }
+      paddingRight: theme.spacing(1),
+    },
   },
   listItemIcon: {
-    [theme.breakpoints.down("md")]: {
-      minWidth: "40px"
-    }
-  }
+    [theme.breakpoints.down('md')]: {
+      minWidth: '40px',
+    },
+  },
 }));
 
 interface Props {
@@ -38,13 +38,10 @@ interface Props {
 }
 
 const Experience: FC<Props> = ({ jobs }) => {
-  const [expanded, setExpanded] = useState<string | false>("panel0");
+  const [expanded, setExpanded] = useState<string | false>('panel0');
   const classes = useStyles();
 
-  const handleChange = (panel: string) => (
-    event: React.ChangeEvent<{}>,
-    newExpanded: boolean
-  ) => {
+  const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {
     setExpanded(newExpanded ? panel : false);
   };
 
@@ -58,14 +55,11 @@ const Experience: FC<Props> = ({ jobs }) => {
             onChange={handleChange(`panel${index}`)}
           >
             <ExpansionPanelSummary expandIcon={<ExpandMore />}>
-              <ListItemText
-                primary={job.description}
-                secondary={job.duration}
-              />
+              <ListItemText primary={job.description} secondary={job.duration} />
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.expansionPanelDetail}>
               <List disablePadding dense>
-                {job.activities.map(activity => (
+                {job.activities.map((activity) => (
                   <ListItem key={activity}>
                     <ListItemIcon className={classes.listItemIcon}>
                       <ChevronRight />

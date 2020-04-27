@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import classnames from "classnames";
+import React, { useState } from 'react';
+import classnames from 'classnames';
 import {
-  AppBar,
   Box,
   Button,
   Container,
@@ -13,24 +12,22 @@ import {
   IconButton,
   Hidden,
   Paper,
-  Link,
-  Toolbar,
   Typography,
   ThemeProvider,
   createMuiTheme,
-  CssBaseline
-} from "@material-ui/core";
-import { AccountBox, Close, GitHub, School, Work } from "@material-ui/icons";
-import Head from "next/head";
+  CssBaseline,
+} from '@material-ui/core';
+import { AccountBox, Close, GitHub, School, Work } from '@material-ui/icons';
+import Head from 'next/head';
 
-import EducationData from "../data/education.json";
-import JobsData from "../data/jobs.json";
+import EducationData from '../data/education.json';
+import JobsData from '../data/jobs.json';
 
-import Experience from "../components/experience";
-import Profile from "../components/profile";
-import Education from "../components/education";
+import Experience from '../components/experience';
+import Profile from '../components/profile';
+import Education from '../components/education';
 
-import { useStyles } from "../styles/index.styles";
+import { useStyles } from '../styles/index.styles';
 
 const IndexPage = () => {
   const [open, setOpen] = useState(false);
@@ -39,13 +36,20 @@ const IndexPage = () => {
   const handleClose = () => setOpen(false);
 
   const renderExperience = () => (
-    <Paper
-      className={classnames(classes.paper, classes.education)}
-      variant="outlined"
-    >
+    <Paper className={classnames(classes.paper, classes.education)} variant="outlined">
       <Box padding={2} display="flex" alignItems="center">
         <Work className={classes.marginRight2} />
         <Typography variant="h6">Work Experience</Typography>
+        <Hidden mdUp>
+          <Button
+            variant="contained"
+            onClick={() => setOpen(true)}
+            className={classes.profileButton}
+            startIcon={<AccountBox />}
+          >
+            Profile
+          </Button>
+        </Hidden>
       </Box>
       <Divider />
       <Experience jobs={JobsData} />
@@ -53,10 +57,7 @@ const IndexPage = () => {
   );
 
   const renderEducation = () => (
-    <Paper
-      className={classnames(classes.paper, classes.marginTop2)}
-      variant="outlined"
-    >
+    <Paper className={classnames(classes.paper, classes.marginTop2)} variant="outlined">
       <Box padding={2} display="flex" alignItems="center">
         <School className={classes.marginRight2} />
         <Typography variant="h6">Education</Typography>
@@ -67,24 +68,28 @@ const IndexPage = () => {
   );
 
   const renderGithubLink = () => (
-    <Box display="flex" justifyContent="flex-end" marginTop={2}>
-      <Link
-        color="inherit"
+    <Box
+      display="flex"
+      justifyContent="flex-end"
+      marginTop={2}
+      paddingBottom={3}
+      className={classes.mobileGithubLink}
+    >
+      <Button
         href="https://github.com/jakob153/jakob153.github.io"
+        variant="contained"
         target="_blank"
+        startIcon={<GitHub />}
       >
-        <Box display="flex" alignItems="center">
-          <GitHub className={classes.marginRight1} />
-          <Typography align="right">Source Code</Typography>
-        </Box>
-      </Link>
+        Source Code
+      </Button>
     </Box>
   );
 
   const theme = createMuiTheme({
     palette: {
-      type: "dark"
-    }
+      type: 'dark',
+    },
   });
 
   return (
@@ -113,17 +118,6 @@ const IndexPage = () => {
         </Container>
       </Hidden>
       <Hidden mdUp>
-        <AppBar color="inherit" position="sticky">
-          <Toolbar>
-            <Typography variant="h6" className={classes.flexGrow}>
-              CV
-            </Typography>
-            <Button variant="contained" onClick={() => setOpen(true)}>
-              <AccountBox className={classes.marginRight1} />
-              Profile
-            </Button>
-          </Toolbar>
-        </AppBar>
         {renderExperience()}
         {renderEducation()}
         {renderGithubLink()}

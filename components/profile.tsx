@@ -1,40 +1,32 @@
-import React, { FC } from "react";
-import {
-  Box,
-  Divider,
-  Link,
-  Paper,
-  Typography,
-  makeStyles,
-  Theme
-} from "@material-ui/core";
-import { Mail, GitHub } from "@material-ui/icons";
+import React, { FC } from 'react';
+import { Box, Divider, Link, Paper, Typography, makeStyles, Theme } from '@material-ui/core';
+import { Mail, GitHub } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
   paper: {
-    padding: theme.spacing(4)
+    padding: theme.spacing(4),
   },
   marginTop1: {
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(1),
   },
   marginTop4: {
-    marginTop: theme.spacing(4)
+    marginTop: theme.spacing(4),
   },
   marginTop8: {
-    marginTop: theme.spacing(8)
+    marginTop: theme.spacing(8),
   },
   marginRight2: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   marginBottom1: {
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
   profilepic: {
-    width: "150px",
-    height: "160px",
-    borderRadius: "50%",
-    objectFit: "cover"
-  }
+    width: '150px',
+    height: '160px',
+    borderRadius: '50%',
+    objectFit: 'cover',
+  },
 }));
 
 const Profile: FC = () => {
@@ -62,11 +54,7 @@ const Profile: FC = () => {
         </Link>
       </Box>
       <Box display="flex" marginTop={1}>
-        <Link
-          href="https://www.github.com/jakob153"
-          color="inherit"
-          target="_blank"
-        >
+        <Link href="https://www.github.com/jakob153" color="inherit" target="_blank">
           <Box display="flex" alignItems="center">
             <GitHub className={classes.marginRight2} />
             <Typography>Github</Typography>
@@ -96,8 +84,8 @@ const Profile: FC = () => {
       </Typography>
       <Divider />
       <Typography className={classes.marginTop1}>
-        Experience with the latest web technologies like React, NodeJS, Redux,
-        GraphQL to create powerful Single Page Applications.
+        Experience with the latest web technologies like React, NodeJS, Redux, GraphQL to create
+        powerful Single Page Applications.
       </Typography>
     </Paper>
   );
