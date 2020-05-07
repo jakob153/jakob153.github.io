@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { ChevronRight, ExpandMore } from '@material-ui/icons';
 
-import { Jobs } from './types';
+import { Jobs } from '../types';
 
 const useStyles = makeStyles((theme: Theme) => ({
   expansionPanelDetail: {

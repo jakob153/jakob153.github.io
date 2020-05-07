@@ -16,6 +16,8 @@ import {
   ThemeProvider,
   createMuiTheme,
   CssBaseline,
+  makeStyles,
+  Theme,
 } from '@material-ui/core';
 import { AccountBox, Close, GitHub, School, Work } from '@material-ui/icons';
 import Head from 'next/head';
@@ -23,11 +25,63 @@ import Head from 'next/head';
 import EducationData from '../data/education.json';
 import JobsData from '../data/jobs.json';
 
-import Experience from '../components/experience';
-import Profile from '../components/profile';
-import Education from '../components/education';
+import Education from '../components/Education';
+import Experience from '../components/Experience';
+import Profile from '../components/Profile';
 
-import { useStyles } from '../styles/index.styles';
+const useStyles = makeStyles((theme: Theme) => ({
+  marginTop2: {
+    marginTop: theme.spacing(2),
+  },
+  marginTop4: {
+    marginTop: theme.spacing(4),
+  },
+  marginRight1: {
+    marginRight: theme.spacing(1),
+  },
+  marginRight2: {
+    marginRight: theme.spacing(2),
+  },
+  appBar: {
+    top: 'auto',
+    bottom: 0,
+  },
+  education: {
+    [theme.breakpoints.up('md')]: {
+      minHeight: '740px',
+    },
+  },
+  paper: {
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+    },
+  },
+  resetPadding: {
+    [theme.breakpoints.down('md')]: {
+      padding: 0,
+    },
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+  },
+  flexGrow: {
+    flexGrow: 1,
+  },
+  profileButton: {
+    marginLeft: 'auto',
+  },
+  mobileGithubLink: {
+    [theme.breakpoints.down('md')]: {
+      marginRight: theme.spacing(1),
+    },
+  },
+}));
+
 
 const IndexPage = () => {
   const [open, setOpen] = useState(false);
