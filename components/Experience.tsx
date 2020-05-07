@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { ChevronRight, ExpandMore } from '@material-ui/icons';
 
-import { Jobs } from '../types';
+import { Job } from '../types';
 
 const useStyles = makeStyles((theme: Theme) => ({
   expansionPanelDetail: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface Props {
-  jobs: Jobs;
+  jobs: Array<Job>;
 }
 
 const Experience: FC<Props> = ({ jobs }) => {

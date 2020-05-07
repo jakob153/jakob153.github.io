@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 
-import { Education as IEducation } from '../types';
+import { Education as EducationData } from '../types';
 
 interface Props {
-  educationData: IEducation;
+  educationData: Array<EducationData>;
 }
 
 export const Education: FC<Props> = ({ educationData }) => {

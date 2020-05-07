@@ -1,13 +1,10 @@
-export type Education = Array<Edu>;
-export type Jobs = Array<Job>;
-
-interface Edu {
+export interface Education {
   id: number;
   duration: string;
   description: string;
 }
 
-interface Job {
+export interface Job {
   id: number;
   duration: string;
   description: string;
