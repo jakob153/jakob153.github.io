@@ -19,6 +19,7 @@ import {
   makeStyles,
   Theme,
 } from '@material-ui/core';
+import { blue, pink } from '@material-ui/core/colors';
 import { AccountBox, Close, GitHub, School, Work } from '@material-ui/icons';
 import Head from 'next/head';
 
@@ -82,7 +83,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-
 const IndexPage = () => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
@@ -121,28 +121,19 @@ const IndexPage = () => {
     </Paper>
   );
 
-  const renderGithubLink = () => (
-    <Box
-      display="flex"
-      justifyContent="flex-end"
-      marginTop={2}
-      paddingBottom={3}
-      className={classes.mobileGithubLink}
-    >
-      <Button
-        href="https://github.com/jakob153/jakob153.github.io"
-        variant="contained"
-        target="_blank"
-        startIcon={<GitHub />}
-      >
-        Source Code
-      </Button>
-    </Box>
-  );
-
   const theme = createMuiTheme({
     palette: {
       type: 'dark',
+      primary: {
+        main: blue[200],
+      },
+      secondary: {
+        main: pink[200],
+      },
+      background: {
+        default: '#121212',
+        paper: '#333',
+      },
     },
   });
 
@@ -168,13 +159,11 @@ const IndexPage = () => {
               {renderEducation()}
             </Grid>
           </Grid>
-          {renderGithubLink()}
         </Container>
       </Hidden>
       <Hidden mdUp>
         {renderExperience()}
         {renderEducation()}
-        {renderGithubLink()}
         <Dialog fullScreen open={open} onClose={handleDialog}>
           <DialogTitle>Profile</DialogTitle>
           <IconButton className={classes.closeButton} onClick={handleDialog}>
