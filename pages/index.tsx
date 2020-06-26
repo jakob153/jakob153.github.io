@@ -18,7 +18,7 @@ import {
   makeStyles,
   Theme,
 } from '@material-ui/core';
-import { blue, pink } from '@material-ui/core/colors';
+import { blue } from '@material-ui/core/colors';
 import { AccountBox, Close, School, Work } from '@material-ui/icons';
 import Head from 'next/head';
 
