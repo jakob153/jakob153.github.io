@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
+import { GetStaticProps } from 'next';
 import {
   Box,
   Button,
@@ -12,33 +13,19 @@ import {
   Hidden,
   Paper,
   Typography,
-  ThemeProvider,
-  createMuiTheme,
-  CssBaseline,
   makeStyles,
   Theme,
 } from '@material-ui/core';
-import { blue } from '@material-ui/core/colors';
 import { AccountBox, Close, School, Work } from '@material-ui/icons';
-import Head from 'next/head';
-
-import EducationData from '../data/education.json';
-import JobsData from '../data/jobs.json';
 
 import Education from '../components/Education';
 import Experience from '../components/Experience';
 import Profile from '../components/Profile';
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    primary: blue,
-    background: {
-      default: '#121212',
-      paper: '#333',
-    },
-  },
-});
+import EducationJSON from '../data/Education.json';
+import JobJSON from '../data/Jobs.json';
+
+import { Education as EducationData, Job } from '../types';
 
 const useStyles = makeStyles((theme: Theme) => ({
   marginTop2: {
@@ -77,7 +64,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const IndexPage = () => {
+interface Props {
+  education: Array<EducationData>;
+  jobs: Array<Job>;
+}
+
+const IndexPage: FC<Props> = ({ education, jobs }) => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
 
@@ -100,7 +92,7 @@ const IndexPage = () => {
         </Hidden>
       </Box>
       <Divider />
-      <Experience jobs={JobsData} />
+      <Experience jobs={jobs} />
     </Paper>
   );
 
@@ -111,49 +103,60 @@ const IndexPage = () => {
         <Typography variant="h6">Education</Typography>
       </Box>
       <Divider />
-      <Education educationData={EducationData} />
+      <Education educationData={education} />
     </Paper>
   );
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Head>
-        <title>Jakob Günay | CV</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-      </Head>
-      <CssBaseline />
-      <Hidden smDown>
-        <Container className={classes.marginTop2}>
-          <Grid container spacing={4}>
-            <Grid item md={4}>
-              <Profile />
-            </Grid>
-            <Grid item md={8}>
-              {renderExperience()}
-              {renderEducation()}
-            </Grid>
-          </Grid>
-        </Container>
-      </Hidden>
-      <Hidden mdUp>
-        {renderExperience()}
-        {renderEducation()}
-        <Dialog fullScreen open={open} onClose={handleDialog}>
-          <DialogTitle>Profile</DialogTitle>
-          <IconButton className={classes.closeButton} onClick={handleDialog}>
-            <Close />
-          </IconButton>
-          <DialogContent className={classes.resetPadding}>
-            <Profile />
-          </DialogContent>
-        </Dialog>
-      </Hidden>
-    </ThemeProvider>
+  const desktopView = () => (
+    <Container className={classes.marginTop2}>
+      <Grid container spacing={4}>
+        <Grid item md={4}>
+          <Profile />
+        </Grid>
+        <Grid item md={8}>
+          {renderExperience()}
+          {renderEducation()}
+        </Grid>
+      </Grid>
+    </Container>
   );
+
+  const mobileView = () => (
+    <>
+      {renderExperience()}
+      {renderEducation()}
+      <Dialog fullScreen open={open} onClose={handleDialog}>
+        <DialogTitle>Profile</DialogTitle>
+        <IconButton className={classes.closeButton} onClick={handleDialog}>
+          <Close />
+        </IconButton>
+        <DialogContent className={classes.resetPadding}>
+          <Profile />
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+
+  // return components directly if ssr
+  if (typeof window === 'undefined') {
+    return desktopView();
+  }
+
+  return (
+    <>
+      <Hidden smDown>{desktopView()}</Hidden>
+      <Hidden mdUp>{mobileView()}</Hidden>
+    </>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  return {
+    props: {
+      education: EducationJSON,
+      jobs: JobJSON,
+    },
+  };
 };
 
 export default IndexPage;

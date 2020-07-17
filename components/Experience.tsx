@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import {
-  ExpansionPanel,
-  ExpansionPanelDetails,
-  ExpansionPanelSummary,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   List,
   ListItem,
   ListItemIcon,
@@ -49,15 +49,15 @@ const Experience: FC<Props> = ({ jobs }) => {
     <List disablePadding>
       {jobs.map((job, index) => (
         <ListItem key={job.id} className={classes.listItem}>
-          <ExpansionPanel
+          <Accordion
             elevation={3}
             expanded={expanded === `panel${index}`}
             onChange={handleChange(`panel${index}`)}
           >
-            <ExpansionPanelSummary expandIcon={<ExpandMore />}>
+            <AccordionSummary expandIcon={<ExpandMore />}>
               <ListItemText primary={job.description} secondary={job.duration} />
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.expansionPanelDetail}>
+            </AccordionSummary>
+            <AccordionDetails className={classes.expansionPanelDetail}>
               <List disablePadding dense>
                 {job.activities.map((activity) => (
                   <ListItem key={activity}>
@@ -68,8 +68,8 @@ const Experience: FC<Props> = ({ jobs }) => {
                   </ListItem>
                 ))}
               </List>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+            </AccordionDetails>
+          </Accordion>
         </ListItem>
       ))}
     </List>
