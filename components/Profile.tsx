@@ -1,5 +1,13 @@
 import React, { FC } from 'react';
-import { Box, Divider, Link, Paper, Typography, makeStyles, Theme } from '@material-ui/core';
+import {
+  Box,
+  Divider,
+  Link,
+  Paper,
+  Typography,
+  makeStyles,
+  Theme,
+} from '@material-ui/core';
 import { Mail, GitHub } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -54,7 +62,11 @@ const Profile: FC = () => {
         </Link>
       </Box>
       <Box display="flex" marginTop={1}>
-        <Link href="https://www.github.com/jakob153" color="inherit" target="_blank">
+        <Link
+          href="https://www.github.com/jakob153"
+          color="inherit"
+          target="_blank"
+        >
           <Box display="flex" alignItems="center">
             <GitHub className={classes.marginRight2} />
             <Typography>Github</Typography>
@@ -84,8 +96,8 @@ const Profile: FC = () => {
       </Typography>
       <Divider />
       <Typography className={classes.marginTop1}>
-        Experience with the latest web technologies like React, NodeJS, Redux, GraphQL to create
-        powerful Single Page Applications.
+        Experience with the latest web technologies like React, NodeJS, Redux,
+        GraphQL to create powerful Single Page Applications.
       </Typography>
     </Paper>
   );

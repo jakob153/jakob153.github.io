@@ -41,7 +41,10 @@ const Experience: FC<Props> = ({ jobs }) => {
   const [expanded, setExpanded] = useState<string | false>('panel0');
   const classes = useStyles();
 
-  const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {
+  const handleChange = (panel: string) => (
+    event: React.ChangeEvent<{}>,
+    newExpanded: boolean
+  ) => {
     setExpanded(newExpanded ? panel : false);
   };
 
@@ -55,7 +58,10 @@ const Experience: FC<Props> = ({ jobs }) => {
             onChange={handleChange(`panel${index}`)}
           >
             <AccordionSummary expandIcon={<ExpandMore />}>
-              <ListItemText primary={job.description} secondary={job.duration} />
+              <ListItemText
+                primary={job.description}
+                secondary={job.duration}
+              />
             </AccordionSummary>
             <AccordionDetails className={classes.expansionPanelDetail}>
               <List disablePadding dense>
