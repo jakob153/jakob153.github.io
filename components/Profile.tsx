@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 import {
   Box,
   Divider,
@@ -42,7 +42,12 @@ const Profile: FC = () => {
   return (
     <Paper className={classes.paper} variant="outlined">
       <Box display="flex" alignItems="center" justifyContent="center">
-        <Image className={classes.profilepic} src="/images/profile.jpg" width="150px" height="160px" />
+        <Image
+          className={classes.profilepic}
+          src="/images/profile.jpg"
+          width="150px"
+          height="160px"
+        />
       </Box>
       <Typography className={classes.marginTop4} align="center" variant="h4">
         Jakob Günay
