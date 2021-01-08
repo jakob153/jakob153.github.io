@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Image from 'next/image'
 import {
   Box,
   Divider,
@@ -30,8 +31,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(1),
   },
   profilepic: {
-    width: '150px',
-    height: '160px',
     borderRadius: '50%',
     objectFit: 'cover',
   },
@@ -43,7 +42,7 @@ const Profile: FC = () => {
   return (
     <Paper className={classes.paper} variant="outlined">
       <Box display="flex" alignItems="center" justifyContent="center">
-        <img className={classes.profilepic} src="/images/profile.jpg" />
+        <Image className={classes.profilepic} src="/images/profile.jpg" width="150px" height="160px" />
       </Box>
       <Typography className={classes.marginTop4} align="center" variant="h4">
         Jakob Günay
@@ -84,12 +83,12 @@ const Profile: FC = () => {
         justifyContent="space-between"
         marginTop={1}
       >
-        <img src="/svgs/apollo.svg" width="90px" />
-        <img src="/svgs/nodejs.svg" width="90px" />
-        <img src="/svgs/react.svg" width="90px" />
-        <img src="/svgs/typescript.svg" width="90px" />
-        <img src="/svgs/cypress.svg" width="90px" />
-        <img src="/svgs/nextjs.svg" width="90px" />
+        <Image src="/svgs/apollo.svg" width="90px" height="90px" />
+        <Image src="/svgs/nodejs.svg" width="90px" height="90px" />
+        <Image src="/svgs/react.svg" width="90px" height="90px" />
+        <Image src="/svgs/typescript.svg" width="90px" height="90px" />
+        <Image src="/svgs/cypress.svg" width="90px" height="90px" />
+        <Image src="/svgs/nextjs.svg" width="90px" height="90px" />
       </Box>
       <Typography className={classes.marginTop4} variant="h6">
         About Me
