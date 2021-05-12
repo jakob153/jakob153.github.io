@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface Props {
-  jobs: Array<Job>;
+  jobs: Job[];
 }
 
 const Experience: FC<Props> = ({ jobs }) => {

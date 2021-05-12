@@ -65,8 +65,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface Props {
-  education: Array<EducationData>;
-  jobs: Array<Job>;
+  education: EducationData[];
+  jobs: Job[];
 }
 
 const IndexPage: FC<Props> = ({ education, jobs }) => {

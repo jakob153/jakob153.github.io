@@ -4,7 +4,7 @@ import { List, ListItem, ListItemText } from '@material-ui/core';
 import { Education as EducationData } from '../types';
 
 interface Props {
-  educationData: Array<EducationData>;
+  educationData: EducationData[];
 }
 
 export const Education: FC<Props> = ({ educationData }) => {

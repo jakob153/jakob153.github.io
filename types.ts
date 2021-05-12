@@ -9,5 +9,5 @@ export interface Job {
   duration: string;
   description: string;
   url: string;
-  activities: Array<string>;
+  activities: string[];
 }
