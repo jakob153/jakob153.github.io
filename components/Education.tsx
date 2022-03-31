@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@mui/material';
 
 import { Education as EducationData } from '../types';
 

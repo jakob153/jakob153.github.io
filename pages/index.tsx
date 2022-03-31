@@ -13,10 +13,8 @@ import {
   Hidden,
   Paper,
   Typography,
-  makeStyles,
-  Theme,
-} from '@material-ui/core';
-import { AccountBox, Close, School, Work } from '@material-ui/icons';
+} from '@mui/material';
+import { AccountBox, Close, School, Work } from '@mui/icons-material';
 
 import Education from '../components/Education';
 import Experience from '../components/Experience';
@@ -27,43 +25,6 @@ import JobJSON from '../data/Jobs.json';
 
 import { Education as EducationData, Job } from '../types';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  marginTop2: {
-    marginTop: theme.spacing(2),
-  },
-  marginRight2: {
-    marginRight: theme.spacing(2),
-  },
-  experience: {
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3),
-      paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2),
-    },
-  },
-  education: {
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3),
-      paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2),
-      marginTop: theme.spacing(2),
-    },
-  },
-  resetPadding: {
-    padding: 0,
-  },
-  closeButton: {
-    position: 'absolute',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-  },
-  profileButton: {
-    marginLeft: 'auto',
-  },
-}));
-
 interface Props {
   education: EducationData[];
   jobs: Job[];
@@ -71,20 +32,29 @@ interface Props {
 
 const IndexPage: FC<Props> = ({ education, jobs }) => {
   const [open, setOpen] = useState(false);
-  const classes = useStyles();
 
   const handleDialog = () => setOpen(!open);
 
   const renderExperience = () => (
-    <Paper className={classes.experience} variant="outlined">
+    <Paper
+      sx={(theme) => ({
+        [theme.breakpoints.up('md')]: {
+          paddingLeft: theme.spacing(3),
+          paddingRight: theme.spacing(3),
+          paddingTop: theme.spacing(2),
+          paddingBottom: theme.spacing(2),
+        },
+      })}
+      variant="outlined"
+    >
       <Box padding={2} display="flex" alignItems="center">
-        <Work className={classes.marginRight2} />
+        <Work sx={{ marginRight: 2 }} />
         <Typography variant="h6">Work Experience</Typography>
         <Hidden mdUp>
           <Button
+            sx={{ marginLeft: 'auto' }}
             variant="contained"
             onClick={handleDialog}
-            className={classes.profileButton}
             startIcon={<AccountBox />}
           >
             Profile
@@ -97,9 +67,20 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
   );
 
   const renderEducation = () => (
-    <Paper className={classes.education} variant="outlined">
+    <Paper
+      sx={(theme) => ({
+        [theme.breakpoints.up('md')]: {
+          paddingLeft: theme.spacing(3),
+          paddingRight: theme.spacing(3),
+          paddingTop: theme.spacing(2),
+          paddingBottom: theme.spacing(2),
+          marginTop: theme.spacing(2),
+        },
+      })}
+      variant="outlined"
+    >
       <Box padding={2} display="flex" alignItems="center">
-        <School className={classes.marginRight2} />
+        <School sx={{ marginRight: 2 }} />
         <Typography variant="h6">Education</Typography>
       </Box>
       <Divider />
@@ -108,7 +89,7 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
   );
 
   const desktopView = () => (
-    <Container className={classes.marginTop2}>
+    <Container sx={{ marginTop: 2 }}>
       <Grid container spacing={4}>
         <Grid item md={4}>
           <Profile />
@@ -127,10 +108,21 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
       {renderEducation()}
       <Dialog fullScreen open={open} onClose={handleDialog}>
         <DialogTitle>Profile</DialogTitle>
-        <IconButton className={classes.closeButton} onClick={handleDialog}>
+        <IconButton
+          sx={{
+            position: 'absolute',
+            right: 1,
+            top: 1,
+          }}
+          onClick={handleDialog}
+        >
           <Close />
         </IconButton>
-        <DialogContent className={classes.resetPadding}>
+        <DialogContent
+          sx={{
+            padding: 0,
+          }}
+        >
           <Profile />
         </DialogContent>
       </Dialog>

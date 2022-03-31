@@ -7,31 +7,10 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Theme,
-  makeStyles,
-} from '@material-ui/core';
-import { ChevronRight, ExpandMore } from '@material-ui/icons';
+} from '@mui/material';
+import { ChevronRight, ExpandMore } from '@mui/icons-material';
 
 import { Job } from '../types';
-
-const useStyles = makeStyles((theme: Theme) => ({
-  expansionPanelDetail: {
-    [theme.breakpoints.down('md')]: {
-      padding: 0,
-    },
-  },
-  listItem: {
-    [theme.breakpoints.down('md')]: {
-      paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1),
-    },
-  },
-  listItemIcon: {
-    [theme.breakpoints.down('md')]: {
-      minWidth: '40px',
-    },
-  },
-}));
 
 interface Props {
   jobs: Job[];
@@ -39,19 +18,24 @@ interface Props {
 
 const Experience: FC<Props> = ({ jobs }) => {
   const [expanded, setExpanded] = useState<string | false>('panel0');
-  const classes = useStyles();
 
-  const handleChange = (panel: string) => (
-    event: React.ChangeEvent<{}>,
-    newExpanded: boolean
-  ) => {
-    setExpanded(newExpanded ? panel : false);
-  };
+  const handleChange =
+    (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {
+      setExpanded(newExpanded ? panel : false);
+    };
 
   return (
     <List disablePadding>
       {jobs.map((job, index) => (
-        <ListItem key={job.id} className={classes.listItem}>
+        <ListItem
+          key={job.id}
+          sx={(theme) => ({
+            [theme.breakpoints.down('md')]: {
+              paddingLeft: theme.spacing(1),
+              paddingRight: theme.spacing(1),
+            },
+          })}
+        >
           <Accordion
             elevation={3}
             expanded={expanded === `panel${index}`}
@@ -63,11 +47,23 @@ const Experience: FC<Props> = ({ jobs }) => {
                 secondary={job.duration}
               />
             </AccordionSummary>
-            <AccordionDetails className={classes.expansionPanelDetail}>
+            <AccordionDetails
+              sx={(theme) => ({
+                [theme.breakpoints.down('md')]: {
+                  padding: 0,
+                },
+              })}
+            >
               <List disablePadding dense>
                 {job.activities.map((activity) => (
                   <ListItem key={activity}>
-                    <ListItemIcon className={classes.listItemIcon}>
+                    <ListItemIcon
+                      sx={(theme) => ({
+                        [theme.breakpoints.down('md')]: {
+                          minWidth: '40px',
+                        },
+                      })}
+                    >
                       <ChevronRight />
                     </ListItemIcon>
                     <ListItemText primary={activity} />
