@@ -142,7 +142,7 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
       education: EducationJSON,

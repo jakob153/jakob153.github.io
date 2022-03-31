@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Box, Divider, Link, Paper, Typography } from '@mui/material';
 import { Mail, GitHub } from '@mui/icons-material';
 
+import { customImageLoader } from '../customImageLoader';
+
 const Profile: FC = () => {
   return (
     <Paper
@@ -20,6 +22,7 @@ const Profile: FC = () => {
           width="150px"
           height="160px"
           objectFit="cover"
+          loader={customImageLoader}
         />
       </Box>
       <Typography
@@ -85,12 +88,42 @@ const Profile: FC = () => {
         justifyContent="space-between"
         marginTop={1}
       >
-        <Image src="/svgs/apollo.svg" width="90px" height="90px" />
-        <Image src="/svgs/nodejs.svg" width="90px" height="90px" />
-        <Image src="/svgs/react.svg" width="90px" height="90px" />
-        <Image src="/svgs/typescript.svg" width="90px" height="90px" />
-        <Image src="/svgs/cypress.svg" width="90px" height="90px" />
-        <Image src="/svgs/nextjs.svg" width="90px" height="90px" />
+        <Image
+          src="/svgs/apollo.svg"
+          width="90px"
+          height="90px"
+          loader={customImageLoader}
+        />
+        <Image
+          src="/svgs/nodejs.svg"
+          width="90px"
+          height="90px"
+          loader={customImageLoader}
+        />
+        <Image
+          src="/svgs/react.svg"
+          width="90px"
+          height="90px"
+          loader={customImageLoader}
+        />
+        <Image
+          src="/svgs/typescript.svg"
+          width="90px"
+          height="90px"
+          loader={customImageLoader}
+        />
+        <Image
+          src="/svgs/cypress.svg"
+          width="90px"
+          height="90px"
+          loader={customImageLoader}
+        />
+        <Image
+          src="/svgs/nextjs.svg"
+          width="90px"
+          height="90px"
+          loader={customImageLoader}
+        />
       </Box>
       <Typography
         sx={{
