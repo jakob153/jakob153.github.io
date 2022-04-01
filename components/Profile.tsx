@@ -11,7 +11,7 @@ const Profile: FC = () => {
       sx={{
         padding: 4,
       }}
-      variant="outlined"
+      elevation={3}
     >
       <Box display="flex" alignItems="center" justifyContent="center">
         <Image

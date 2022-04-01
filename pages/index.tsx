@@ -45,7 +45,7 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
           paddingBottom: theme.spacing(2),
         },
       })}
-      variant="outlined"
+      elevation={3}
     >
       <Box padding={2} display="flex" alignItems="center">
         <Work sx={{ marginRight: 2 }} />
@@ -77,7 +77,7 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
           marginTop: theme.spacing(2),
         },
       })}
-      variant="outlined"
+      elevation={3}
     >
       <Box padding={2} display="flex" alignItems="center">
         <School sx={{ marginRight: 2 }} />

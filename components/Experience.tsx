@@ -37,7 +37,7 @@ const Experience: FC<Props> = ({ jobs }) => {
           })}
         >
           <Accordion
-            elevation={3}
+            elevation={6}
             expanded={expanded === `panel${index}`}
             onChange={handleChange(`panel${index}`)}
           >
