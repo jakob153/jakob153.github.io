@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Experience: FC<Props> = ({ jobs }) => {
-  const [expanded, setExpanded] = useState<string | false>('panel0');
+  const [expanded, setExpanded] = useState<string | false>(false);
 
   const handleChange =
     (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {
@@ -37,6 +37,9 @@ const Experience: FC<Props> = ({ jobs }) => {
           })}
         >
           <Accordion
+            sx={{
+              flexGrow: 1,
+            }}
             elevation={6}
             expanded={expanded === `panel${index}`}
             onChange={handleChange(`panel${index}`)}
