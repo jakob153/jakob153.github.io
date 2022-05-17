@@ -28,7 +28,7 @@ const Experience: FC<Props> = ({ jobs }) => {
     <List disablePadding>
       {jobs.map((job, index) => (
         <ListItem
-          key={job.id}
+          key={index}
           sx={(theme) => ({
             [theme.breakpoints.down('md')]: {
               paddingLeft: theme.spacing(1),

@@ -10,8 +10,8 @@ interface Props {
 export const Education: FC<Props> = ({ educationData }) => {
   return (
     <List disablePadding>
-      {educationData.map((edu) => (
-        <ListItem key={edu.id} divider>
+      {educationData.map((edu, index) => (
+        <ListItem key={index} divider>
           <ListItemText primary={edu.description} secondary={edu.duration} />
         </ListItem>
       ))}
