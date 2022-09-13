@@ -28,9 +28,10 @@ import { Education as EducationData, Job } from '../types';
 interface Props {
   education: EducationData[];
   jobs: Job[];
+  isSSR: boolean;
 }
 
-const IndexPage: FC<Props> = ({ education, jobs }) => {
+const IndexPage: FC<Props> = ({ education, jobs, isSSR }) => {
   const [open, setOpen] = useState(false);
 
   const handleDialog = () => setOpen(!open);
@@ -130,7 +131,7 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
   );
 
   // return components directly if ssr
-  if (typeof window === 'undefined') {
+  if (isSSR) {
     return desktopView();
   }
 
@@ -143,10 +144,13 @@ const IndexPage: FC<Props> = ({ education, jobs }) => {
 };
 
 export const getStaticProps: GetStaticProps = () => {
+  const isSSR = typeof window === 'undefined';
+
   return {
     props: {
       education: EducationJSON,
       jobs: JobJSON,
+      isSSR,
     },
   };
 };

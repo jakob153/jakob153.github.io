@@ -3,7 +3,14 @@ import Image from 'next/image';
 import { Box, Divider, Link, Paper, Typography } from '@mui/material';
 import { Mail, GitHub } from '@mui/icons-material';
 
-import { customImageLoader } from '../customImageLoader';
+import ProfilePNG from '../public/images/profile.jpg';
+
+import ApolloSvg from '../public/svgs/apollo.svg';
+import CypressSvg from '../public/svgs/cypress.svg';
+import NextjsSvg from '../public/svgs/nextjs.svg';
+import NodeJsSvg from '../public/svgs/nodejs.svg';
+import ReactSvg from '../public/svgs/react.svg';
+import TypescriptSvg from '../public/svgs/typescript.svg';
 
 const Profile: FC = () => {
   return (
@@ -18,11 +25,10 @@ const Profile: FC = () => {
           style={{
             borderRadius: '50%',
           }}
-          src="/images/profile.jpg"
+          src={ProfilePNG}
           width="150px"
           height="160px"
           objectFit="cover"
-          loader={customImageLoader}
         />
       </Box>
       <Typography
@@ -88,42 +94,12 @@ const Profile: FC = () => {
         justifyContent="space-between"
         marginTop={1}
       >
-        <Image
-          src="/svgs/apollo.svg"
-          width="90px"
-          height="90px"
-          loader={customImageLoader}
-        />
-        <Image
-          src="/svgs/nodejs.svg"
-          width="90px"
-          height="90px"
-          loader={customImageLoader}
-        />
-        <Image
-          src="/svgs/react.svg"
-          width="90px"
-          height="90px"
-          loader={customImageLoader}
-        />
-        <Image
-          src="/svgs/typescript.svg"
-          width="90px"
-          height="90px"
-          loader={customImageLoader}
-        />
-        <Image
-          src="/svgs/cypress.svg"
-          width="90px"
-          height="90px"
-          loader={customImageLoader}
-        />
-        <Image
-          src="/svgs/nextjs.svg"
-          width="90px"
-          height="90px"
-          loader={customImageLoader}
-        />
+        <Image src={ApolloSvg} width="90px" height="90px" />
+        <Image src={NodeJsSvg} width="90px" height="90px" />
+        <Image src={ReactSvg} width="90px" height="90px" />
+        <Image src={TypescriptSvg} width="90px" height="90px" />
+        <Image src={CypressSvg} width="90px" height="90px" />
+        <Image src={NextjsSvg} width="90px" height="90px" />
       </Box>
       <Typography
         sx={{

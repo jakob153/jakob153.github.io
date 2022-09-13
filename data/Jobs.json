@@ -11,7 +11,7 @@
   },
   {
     "duration": "2019 - 2021",
-    "description": "Frontend Developer @ ÖBB",
+    "description": "Full Stack Developer @ ÖBB",
     "url": "https://www.oebb.at",
     "activities": [
       "Displaying Wagon Loadings and Wagon Demands in multiple Charts for Customers like VoestAlpine using ReactJS, Redux and Typescript.",
@@ -23,7 +23,7 @@
   },
   {
     "duration": "2018 - 2019",
-    "description": "Frontend Developer @ XXXLutz",
+    "description": "Full Stack Developer @ XXXLutz",
     "url": "https://www.xxxlutz.at",
     "activities": [
       "Creating a Single Page Application from scratch for the different rails Lutz, Mömax and Möbelix using ReactJS and Redux.",
