@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { useState } from 'react';
 import {
   Accordion,
   AccordionDetails,
@@ -16,7 +16,7 @@ interface Props {
   jobs: Job[];
 }
 
-const Experience: FC<Props> = ({ jobs }) => {
+const Experience = ({ jobs }: Props) => {
   const [expanded, setExpanded] = useState<string | false>(false);
 
   const handleChange =

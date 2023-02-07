@@ -1,5 +1,4 @@
 // https://github.com/mui/material-ui/blob/master/examples/nextjs-with-typescript/pages/_app.tsx
-import React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';

@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
 import Image from 'next/image';
 import { Box, Divider, Link, Paper, Typography } from '@mui/material';
 import { Mail, GitHub } from '@mui/icons-material';
 
-import ProfilePNG from '../public/images/profile.jpg';
+import ProfileJPG from '../public/images/profile.jpg';
 
 import ApolloSvg from '../public/svgs/apollo.svg';
 import CypressSvg from '../public/svgs/cypress.svg';
@@ -12,7 +11,7 @@ import NodeJsSvg from '../public/svgs/nodejs.svg';
 import ReactSvg from '../public/svgs/react.svg';
 import TypescriptSvg from '../public/svgs/typescript.svg';
 
-const Profile: FC = () => {
+const Profile = () => {
   return (
     <Paper
       sx={{
@@ -24,11 +23,12 @@ const Profile: FC = () => {
         <Image
           style={{
             borderRadius: '50%',
+            objectFit: 'cover',
           }}
-          src={ProfilePNG}
-          width="150px"
-          height="160px"
-          objectFit="cover"
+          src={ProfileJPG}
+          alt="profile picture"
+          width={150}
+          height={160}
         />
       </Box>
       <Typography
@@ -94,12 +94,17 @@ const Profile: FC = () => {
         justifyContent="space-between"
         marginTop={1}
       >
-        <Image src={ApolloSvg} width="90px" height="90px" />
-        <Image src={NodeJsSvg} width="90px" height="90px" />
-        <Image src={ReactSvg} width="90px" height="90px" />
-        <Image src={TypescriptSvg} width="90px" height="90px" />
-        <Image src={CypressSvg} width="90px" height="90px" />
-        <Image src={NextjsSvg} width="90px" height="90px" />
+        <Image src={ApolloSvg} alt="apolloLogo" width={90} height={90} />
+        <Image src={NodeJsSvg} alt="NodeJsLogo" width={90} height={90} />
+        <Image src={ReactSvg} alt="ReactLogo" width={90} height={90} />
+        <Image
+          src={TypescriptSvg}
+          alt="TypescriptLogo"
+          width={90}
+          height={90}
+        />
+        <Image src={CypressSvg} alt="CypressLogo" width={90} height={90} />
+        <Image src={NextjsSvg} alt="NextJsLogo" width={90} height={90} />
       </Box>
       <Typography
         sx={{

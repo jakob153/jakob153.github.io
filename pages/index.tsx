@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { useState } from 'react';
 import { GetStaticProps } from 'next';
 import {
   Box,
@@ -28,13 +28,12 @@ import { Education as EducationData, Job } from '../types';
 interface Props {
   education: EducationData[];
   jobs: Job[];
-  isSSR: boolean;
 }
 
-const IndexPage: FC<Props> = ({ education, jobs, isSSR }) => {
+const IndexPage = ({ education, jobs }: Props) => {
   const [open, setOpen] = useState(false);
 
-  const handleDialog = () => setOpen(!open);
+  const handleDialog = () => setOpen((prevOpen) => !prevOpen);
 
   const renderExperience = () => (
     <Paper
@@ -130,11 +129,6 @@ const IndexPage: FC<Props> = ({ education, jobs, isSSR }) => {
     </>
   );
 
-  // return components directly if ssr
-  if (isSSR) {
-    return desktopView();
-  }
-
   return (
     <>
       <Hidden smDown>{desktopView()}</Hidden>
@@ -144,13 +138,10 @@ const IndexPage: FC<Props> = ({ education, jobs, isSSR }) => {
 };
 
 export const getStaticProps: GetStaticProps = () => {
-  const isSSR = typeof window === 'undefined';
-
   return {
     props: {
       education: EducationJSON,
       jobs: JobJSON,
-      isSSR,
     },
   };
 };

@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { List, ListItem, ListItemText } from '@mui/material';
 
 import { Education as EducationData } from '../types';
@@ -7,7 +6,7 @@ interface Props {
   educationData: EducationData[];
 }
 
-export const Education: FC<Props> = ({ educationData }) => {
+export const Education = ({ educationData }: Props) => {
   return (
     <List disablePadding>
       {educationData.map((edu, index) => (
