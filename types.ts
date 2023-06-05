@@ -6,6 +6,5 @@ export interface Education {
 export interface Job {
   duration: string;
   description: string;
-  url: string;
   activities: string[];
 }
