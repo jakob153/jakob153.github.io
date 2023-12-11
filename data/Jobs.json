@@ -11,15 +11,6 @@
     ]
   },
   {
-    "duration": "2021",
-    "description": "Frontend Developer @ HelloFresh",
-    "activities": [
-      "Building a UI for creating recipes/meal plans from different countries using ReactJS, Redux and Typescript.",
-      "Writing unit tests with JEST and testing-library",
-      "Design is done with custom version of React Material UI."
-    ]
-  },
-  {
     "duration": "2019 - 2021",
     "description": "Full Stack Developer @ ÖBB",
     "activities": [
