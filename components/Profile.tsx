@@ -38,7 +38,7 @@ const Profile = () => {
         align="center"
         variant="h4"
       >
-        Jakob Günay
+        Jakob
       </Typography>
       <Typography align="center">Webdeveloper</Typography>
       <Typography
