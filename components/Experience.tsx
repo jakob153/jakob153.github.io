@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Experience = ({ jobs }: Props) => {
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | false>('panel0');
 
   const handleChange =
     (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {

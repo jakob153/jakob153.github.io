@@ -33,32 +33,32 @@ const Profile = () => {
       </Box>
       <Typography
         sx={{
-          marginTop: 4,
+          marginTop: 3,
         }}
         align="center"
         variant="h4"
       >
-        Jakob
+        Jakob Kruk
       </Typography>
-      <Typography align="center">Webdeveloper</Typography>
+      <Typography align="center">Freelancer Fullstack Dev</Typography>
       <Typography
         sx={{
-          marginTop: 4,
+          marginTop: 3,
         }}
         variant="h6"
       >
-        Contact Me
+        Platforms
       </Typography>
       <Divider />
       <Box display="flex" marginTop={1}>
-        <Link href="mailto:guenayjakob@gmail.com" color="inherit">
+        <Link href="mailto:jakob.kruk@outlook.com" color="inherit">
           <Box display="flex" alignItems="center">
             <Mail
               sx={{
                 marginRight: 2,
               }}
             />
-            <Typography>guenayjakob@gmail.com</Typography>
+            <Typography>jakob.kruk@outlook.com</Typography>
           </Box>
         </Link>
       </Box>
@@ -106,23 +106,6 @@ const Profile = () => {
         <Image src={CypressSvg} alt="CypressLogo" width={90} height={90} />
         <Image src={NextjsSvg} alt="NextJsLogo" width={90} height={90} />
       </Box>
-      <Typography
-        sx={{
-          marginTop: 4,
-        }}
-        variant="h6"
-      >
-        About Me
-      </Typography>
-      <Divider />
-      <Typography
-        sx={{
-          marginTop: 1,
-        }}
-      >
-        Experience with the latest web technologies like React, NodeJS, Redux,
-        GraphQL to create powerful Single Page Applications.
-      </Typography>
     </Paper>
   );
 };
