@@ -38,7 +38,7 @@ const Profile = () => {
         align="center"
         variant="h4"
       >
-        Jakob Kruk
+        Jakob Günay
       </Typography>
       <Typography align="center">Freelancer Fullstack Dev</Typography>
       <Typography
@@ -51,14 +51,14 @@ const Profile = () => {
       </Typography>
       <Divider />
       <Box display="flex" marginTop={1}>
-        <Link href="mailto:jakob.kruk@outlook.com" color="inherit">
+        <Link href="mailto:guenayjakob@gmail.com" color="inherit">
           <Box display="flex" alignItems="center">
             <Mail
               sx={{
                 marginRight: 2,
               }}
             />
-            <Typography>jakob.kruk@outlook.com</Typography>
+            <Typography>guenayjakob@gmail.com</Typography>
           </Box>
         </Link>
       </Box>
