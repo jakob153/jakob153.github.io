@@ -38,7 +38,7 @@ const Profile = () => {
         align="center"
         variant="h4"
       >
-        Jakob Kruk
+        Jakob Günay
       </Typography>
       <Typography align="center">Freelancer Fullstack Dev</Typography>
       <Typography
